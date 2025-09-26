@@ -1,9 +1,28 @@
 import cosas.*
 
-describe "group of test for cosas" {
+describe "Paquete de ladrillos" {
 
-  test "first test" {
-    assert.that(true)
+  test "Su nivel de peligrosidad es 2" {
+    assert.equals(2, paqueteDeLadrillos.nivelDePeligrosidad())
   }
 
+  test "Su peso es 100 cuando tiene 50 ladrillos" {
+    paqueteDeLadrillos.cantidadDeLadrillos(50)
+    assert.equals(100, paqueteDeLadrillos.peso())
+  }
+}
+
+describe "Embalaje de seguridad" {
+  method initialize() {
+    residuosRadioactivos.peso(30)
+    embalajeDeSeguridad.unElemento(residuosRadioactivos)
+  }
+
+  test "Su peso es 30" {
+    assert.equals(30, embalajeDeSeguridad.peso())
+  }
+
+  test "Su nivel de peligrosidad la mitad de los residuos, o sea, es 100" {
+    assert.equals(100, embalajeDeSeguridad.nivelDePeligrosidad())
+  }
 }
